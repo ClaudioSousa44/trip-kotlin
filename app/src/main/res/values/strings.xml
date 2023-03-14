@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">login-screen</string>
+    <string name="title_activity_sing_up">SingUp</string>
+    <string name="login">Login</string>
+    <string name="please">Please sign in to continue.</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="singin">Sing in</string>
+    <string name="dontHave">Don\'t have an account? </string>
+    <string name="singup">Sing up</string>
+    <string name="create">Create a new account</string>
+    <string name="username">Username</string>
+    <string name="phone">phone</string>
+    <string name="over">Over 18?</string>
+    <string name="createAccount">Create account</string>
+    <string name="always">Already have an account?</string>
+    <string name="title_activity_home">Home</string>
+
 </resources>

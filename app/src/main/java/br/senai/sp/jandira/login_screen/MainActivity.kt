@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -68,12 +69,12 @@ fun  LoginScreen() {
             ) {
                 //text-login
                 Column() {
-                    Text(text = "Login",
+                    Text(text = stringResource(id = R.string.login),
                         color = Color(207, 6, 240),
                         fontSize = 48.sp,
                         fontWeight = FontWeight(700)
                     )
-                    Text(text = "Please sign in to continue.",
+                    Text(text = stringResource(id = R.string.please),
                         color = Color(160,156,156),
                         fontSize = 14.sp,
                         modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 87.dp)
@@ -85,10 +86,12 @@ fun  LoginScreen() {
                 ) {
                     OutlinedTextField(
                         value = " ",
-                        modifier = Modifier.fillMaxWidth().padding(0.dp, 0.dp, 0.dp, 31.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(0.dp, 0.dp, 0.dp, 31.dp),
                         shape = RoundedCornerShape(16.dp),
                         onValueChange ={},
-                        label = { Text(text = "E-mail")},
+                        label = { Text(text = stringResource(id = R.string.email))},
                         placeholder = { Text(text = "teste@email.com")},
                         leadingIcon = { Icon(painter = painterResource(id = R.drawable.baseline_email_24),
                             contentDescription = null,
@@ -99,9 +102,11 @@ fun  LoginScreen() {
                     OutlinedTextField(
                         value = " ",
                         onValueChange ={},
-                        modifier = Modifier.fillMaxWidth().padding(0.dp, 0.dp, 0.dp, 31.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(0.dp, 0.dp, 0.dp, 31.dp),
                         shape = RoundedCornerShape(16.dp),
-                        label = { Text(text = "Password")},
+                        label = { Text(text = stringResource(id = R.string.password))},
                         placeholder = { Text(text = "****************")},
                         leadingIcon = { Icon(painter = painterResource(id = R.drawable.baseline_lock_24),
                             contentDescription = null,
@@ -122,7 +127,7 @@ fun  LoginScreen() {
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
                             ) {
-                                Text(text = "SIGN IN",
+                                Text(text = stringResource(id = R.string.singin).uppercase(),
                                    color = Color.White,
                                    modifier = Modifier.padding(9.dp, 0.dp))
                                 Icon(painter = painterResource(id = R.drawable.baseline_arrow_forward_24),
@@ -134,8 +139,8 @@ fun  LoginScreen() {
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.End
                         ) {
-                            Text(text = "Don't have an account? ", color = Color(160,156,156))
-                            Text(text = "Sign up", color = Color(207, 6, 240))
+                            Text(text = stringResource(id = R.string.dontHave), color = Color(160,156,156))
+                            Text(text = stringResource(id = R.string.singup), color = Color(207, 6, 240))
                         }
 
                         
