@@ -3,12 +3,20 @@ package br.senai.sp.jandira.login_screen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -16,6 +24,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import br.senai.sp.jandira.login_screen.components.BottomShape
+import br.senai.sp.jandira.login_screen.components.TopShape
 import br.senai.sp.jandira.login_screen.ui.theme.ui.theme.LoginscreenTheme
 
 class SingUp : ComponentActivity() {
@@ -34,6 +44,19 @@ class SingUp : ComponentActivity() {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun SingUpScreen(){
+    var usernameState =  rememberSaveable {
+        mutableStateOf("")
+    }
+    var phoneState =  rememberSaveable {
+        mutableStateOf("")
+    }
+    var emailState =  rememberSaveable {
+        mutableStateOf("")
+    }
+    var passwordState =  rememberSaveable {
+        mutableStateOf("")
+    }
+
     Surface(
         modifier = Modifier.
         fillMaxSize()
@@ -48,16 +71,7 @@ fun SingUpScreen(){
                 fillMaxWidth(),
                 horizontalArrangement = Arrangement.End
             ) {
-                Surface(
-                    modifier = Modifier
-                        .width(120.dp)
-                        .height(40.dp)
-                    ,
-                    color = Color(207, 6, 240),
-                    shape = RoundedCornerShape(
-                        bottomStart = 16.dp
-                    )
-                ) {}
+                TopShape()
             }
 
 
@@ -74,14 +88,43 @@ fun SingUpScreen(){
                         color = Color(160,156,156),
                         fontSize = 14.sp,
                         modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 0.dp))
+                    Box(){
+                        Card(modifier = Modifier
+                            .size(100.dp)
+                            .align(alignment = Alignment.TopCenter),
+                            shape = CircleShape,
+                            border = BorderStroke(
+                                width = 1.dp,
+                                Brush.horizontalGradient(
+                                    colors = listOf(
+                                        Color.Magenta, Color.White
+                                    )
+                                )
+                            )
+                        ) {
+                            Image(painter = painterResource(id = R.drawable.baseline_person_24),
+                                contentDescription = null,
+                                modifier = Modifier.padding(16.dp)
+                               )
+                        }
+
+                            Icon(painter =
+                            painterResource(id = R.drawable.img_1),
+                                contentDescription = null,
+                                modifier = Modifier
+                                .align(Alignment.BottomEnd),
+                                tint = Color(207, 6, 240)
+                            )
+
+                    }
                 }
 
                 //inputs
                 Column (
                     modifier = Modifier.padding(16.dp)
                 ) {
-                    OutlinedTextField(value = " ",
-                        onValueChange = { },
+                    OutlinedTextField(value = usernameState.value,
+                        onValueChange = {usernameState.value = it },
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(0.dp, 0.dp, 0.dp, 31.dp),
@@ -91,8 +134,8 @@ fun SingUpScreen(){
                             contentDescription = null,
                             tint = Color(207, 6, 240))}
                     )
-                    OutlinedTextField(value = " ",
-                        onValueChange = { },
+                    OutlinedTextField(value = phoneState.value,
+                        onValueChange = { phoneState.value = it},
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(0.dp, 0.dp, 0.dp, 31.dp),
@@ -102,8 +145,8 @@ fun SingUpScreen(){
                             contentDescription = null,
                             tint = Color(207, 6, 240))}
                     )
-                    OutlinedTextField(value = " ",
-                        onValueChange = { },
+                    OutlinedTextField(value = emailState.value,
+                        onValueChange = { emailState.value = it},
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(0.dp, 0.dp, 0.dp, 31.dp),
@@ -114,8 +157,8 @@ fun SingUpScreen(){
                             tint = Color(207, 6, 240))}
                     )
                     OutlinedTextField(
-                        value = " ",
-                        onValueChange ={},
+                        value = passwordState.value,
+                        onValueChange ={passwordState.value = it},
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(0.dp, 0.dp, 0.dp, 31.dp),
@@ -161,16 +204,7 @@ fun SingUpScreen(){
 
 
 
-            Surface(
-                modifier = Modifier
-                    .width(120.dp)
-                    .height(40.dp)
-                ,
-                color = Color(207, 6, 240),
-                shape = RoundedCornerShape(
-                    topEnd = 16.dp
-                )
-            ) {}
+           BottomShape()
 
         }
 

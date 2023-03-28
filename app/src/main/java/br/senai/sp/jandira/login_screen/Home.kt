@@ -68,6 +68,8 @@ fun HomeScreen() {
                         )
                     }
 
+                    Spacer(modifier = Modifier.size(48.dp))
+
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(painter = painterResource(id = R.drawable.baseline_location_on_24),
                             contentDescription = "",

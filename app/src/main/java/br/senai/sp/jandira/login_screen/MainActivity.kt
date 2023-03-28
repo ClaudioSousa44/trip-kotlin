@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,6 +20,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import br.senai.sp.jandira.login_screen.components.BottomShape
+import br.senai.sp.jandira.login_screen.components.TopShape
 import br.senai.sp.jandira.login_screen.ui.theme.LoginscreenTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,6 +39,15 @@ class MainActivity : ComponentActivity() {
 @Preview(showSystemUi = true)
 @Composable
 fun  LoginScreen() {
+
+        var emailState = rememberSaveable()
+              {mutableStateOf("")}
+
+        var passwordState = rememberSaveable {
+            mutableStateOf("")
+        }
+            
+
     Surface(
         modifier = Modifier.
                 fillMaxSize()
@@ -49,16 +62,7 @@ fun  LoginScreen() {
                 fillMaxWidth(),
                 horizontalArrangement = Arrangement.End
             ) {
-                Surface(
-                    modifier = Modifier
-                        .width(120.dp)
-                        .height(40.dp)
-                            ,
-                            color = Color(207, 6, 240),
-                    shape = RoundedCornerShape(
-                        bottomStart = 16.dp
-                    )
-                ) {}
+                TopShape()
             }
             //Column main
             Column(
@@ -85,12 +89,12 @@ fun  LoginScreen() {
                     modifier = Modifier
                 ) {
                     OutlinedTextField(
-                        value = " ",
+                        value = emailState.value,
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(0.dp, 0.dp, 0.dp, 31.dp),
                         shape = RoundedCornerShape(16.dp),
-                        onValueChange ={},
+                        onValueChange ={emailState.value = it},
                         label = { Text(text = stringResource(id = R.string.email))},
                         placeholder = { Text(text = "teste@email.com")},
                         leadingIcon = { Icon(painter = painterResource(id = R.drawable.baseline_email_24),
@@ -100,8 +104,8 @@ fun  LoginScreen() {
                     )}
 
                     OutlinedTextField(
-                        value = " ",
-                        onValueChange ={},
+                        value = passwordState.value,
+                        onValueChange ={passwordState.value = it},
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(0.dp, 0.dp, 0.dp, 31.dp),
@@ -148,16 +152,7 @@ fun  LoginScreen() {
 
                     
                 }
-            Surface(
-                modifier = Modifier
-                    .width(120.dp)
-                    .height(40.dp)
-                ,
-                color = Color(207, 6, 240),
-                shape = RoundedCornerShape(
-                    topEnd = 16.dp
-                )
-            ) {}
+            BottomShape()
 
             }
 
