@@ -15,7 +15,7 @@ interface UserDao {
     @Delete
     fun delete(user: User) : Int
 
-    @Query ("SELECT * FROM tbl_user WHERE email= :email")
-    fun findUserByEmail(email: String): User
+   // @Query ("SELECT * FROM tbl_user WHERE email= :email")
+   // fun findUserByEmail(email: String): User
 
 }

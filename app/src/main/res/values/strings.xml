@@ -17,5 +17,9 @@
     <string name="title_activity_home">Home</string>
     <string name="you_are_in_paris">You\'re in Paris</string>
     <string name="my_trip">My Trips</string>
+    <string name="categories">Categories</string>
+    <string name="searchDestiny">Search your destinity</string>
+    <string name="pastTrips">Past Trips</string>
+
 
 </resources>
