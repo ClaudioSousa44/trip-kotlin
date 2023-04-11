@@ -11,4 +11,8 @@ class UserRepository(context: Context) {
     fun save(user: User): Long{
         return  db.userDao().save(user)
     }
+
+    fun findUserByEmail(email: String): User {
+        return db.userDao().findUserByEmail(email)
+    }
 }

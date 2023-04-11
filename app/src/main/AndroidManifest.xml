@@ -12,17 +12,18 @@
         android:theme="@style/Theme.Loginscreen"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Home"
             android:exported="false"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.Loginscreen" />
         <activity
-            android:name=".SingUp"
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:exported="false"
             android:label="@string/title_activity_sing_up"
             android:theme="@style/Theme.Loginscreen" />
         <activity
-            android:name=".Home"
+            android:name=".SingUp"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Loginscreen">
