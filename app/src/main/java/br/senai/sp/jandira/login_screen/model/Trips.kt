@@ -4,7 +4,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import java.time.Year
 
 data class Trips(
-    var id: Int = 0,
+    var id: Long = 0,
     var place: String = "",
     var image: Painter? = null,
     var year: String = "",

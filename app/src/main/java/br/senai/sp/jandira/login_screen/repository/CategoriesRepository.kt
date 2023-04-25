@@ -25,6 +25,12 @@ class CategoriesRepository {
                     name = "Beach",
                     image = painterResource(id = R.drawable.baseline_beach_access_24)
                 ),
+                Categories(
+                    id = 4,
+                    name = "Forest",
+                    image = painterResource(id = R.drawable.baseline_forest_24)
+                ),
+
 
             )
         }

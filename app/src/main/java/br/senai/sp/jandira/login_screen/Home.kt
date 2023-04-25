@@ -47,217 +47,237 @@ class Home : ComponentActivity() {
 
 @Composable
 fun HomeScreen(categorie: List<Categories>, trip: List<Trips>) {
-    Surface(modifier = Modifier.fillMaxSize(),
-        color = Color(238, 237, 237, 255)
-
+    Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(onClick = { /*TODO*/ }, backgroundColor = Color.Magenta) {
+                Text(text = "+", color = Color.White)
+            }
+        }
     ) {
-        Column(modifier = Modifier.fillMaxSize(),
-       ) {
-            Box(modifier = Modifier
-                .fillMaxWidth()
-                .height(250.dp),
 
-                ) {
-                Image(painter = painterResource(id = R.drawable.paris),
-                    contentDescription = ""
-                    )
-                Column(modifier = Modifier.padding(end = 19.dp, top = 13.dp, start = 22.dp)) {
-                    Row(modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End) {
+        Surface(modifier = Modifier
+            .fillMaxSize()
+            .padding(it),
+            color = Color(238, 237, 237, 255)
 
-                        Surface(modifier = Modifier
-                            .height(61.dp)
-                            .width(61.dp),
-                            shape = CircleShape) {
-                            Image(painter = painterResource(id = R.drawable.susanna_profile), contentDescription = "")
-
-                        }
-                    }
-                    Row(modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End) {
-                        Text(text = "Susanna Hoffs",
-                            color = Color.White,
-                            fontSize = 12.sp
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.size(48.dp))
-
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(painter = painterResource(id = R.drawable.baseline_location_on_24),
-                            contentDescription = "",
-                            tint = Color.White,
-                            modifier = Modifier
-                                .height(14.dp)
-                                .width(14.dp)
-
-                        )
-                        Text(text = stringResource(id = R.string.you_are_in_paris),
-                            color = Color.White,
-                            fontSize = 14.sp,
-                            fontWeight = FontWeight(400)
-                        )
-                    }
-                    Text(text = stringResource(id = R.string.my_trip),
-                        color = Color.White,
-                        fontWeight = FontWeight(700),
-                        fontSize = 24.sp)
-                }
-            }
-
-
-            Surface(
-                modifier = Modifier.fillMaxSize(),
-                color = Color(238, 237, 237, 255)
+        ) {
+            Column(modifier = Modifier.fillMaxSize(),
             ) {
-                Column() {
-                    Text(text = stringResource(id =R.string.categories),
-                        modifier = Modifier.padding(start = 17.dp)
+                Box(modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp),
+
+                    ) {
+                    Image(painter = painterResource(id = R.drawable.paris),
+                        contentDescription = "",
+                        contentScale = ContentScale.Crop
                     )
-                    LazyRow(
-                        modifier = Modifier
-                            .padding(start = 19.dp)
-                    ){
-                        items(categorie){
-                                categories ->
-                            Card(
-                                modifier = Modifier
-                                    .width(109.dp)
-                                    .height(64.dp),
-                                backgroundColor = Color.Magenta
-                            ) {
-                                Column(
-                                    modifier = Modifier
-                                        .fillMaxSize()
-                                        .padding(8.dp),
-                                    verticalArrangement = Arrangement.Center,
-                                    horizontalAlignment = Alignment.CenterHorizontally
-                                ) {
-                                    Icon(painter = categories.image ?:
-                                    painterResource(
-                                        id = R.drawable.baseline_forest_24) ,
-                                        contentDescription = "",
-                                        tint = Color.White,
-                                        modifier = Modifier
-                                            .width(32.dp)
-                                            .height(32.dp)
-                                    )
-                                    Text(text = categories.name,
-                                        color = Color.White,
-                                        fontSize = 14.sp )
-                                }
+                    Column(modifier = Modifier.padding(end = 19.dp, top = 13.dp, start = 22.dp)) {
+                        Row(modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End) {
+
+                            Surface(modifier = Modifier
+                                .height(61.dp)
+                                .width(61.dp),
+                                shape = CircleShape) {
+                                Image(painter = painterResource(id = R.drawable.susanna_profile), contentDescription = "")
 
                             }
-                            Spacer(modifier = Modifier.width(8.dp))
                         }
-                    }
-                    OutlinedTextField(
-                        value = "" ,
-                        onValueChange = {},
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(17.dp),
-                        shape = RoundedCornerShape(16.dp),
-                        leadingIcon = {
-                            Icon(
-                                painter = painterResource(id = R.drawable.baseline_search_24) ,
-                                contentDescription ="",
-                                tint = Color.Gray
+                        Row(modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End) {
+                            Text(text = "Susanna Hoffs",
+                                color = Color.White,
+                                fontSize = 12.sp
                             )
-                        },
-                        label = {
-                            Text(text = stringResource(id = R.string.searchDestiny),
-                            color = Color.Gray)
-                        },
-                        colors = TextFieldDefaults.outlinedTextFieldColors(
-                            unfocusedBorderColor = Color.White,
-                            backgroundColor = Color.White
-                        ),
+                        }
 
-                    )
-                    
-                    Spacer(modifier = Modifier.height(20.dp))
+                        Spacer(modifier = Modifier.size(48.dp))
 
-                    Text(
-                        text = stringResource(id = R.string.pastTrips),
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight(400),
-                        modifier = Modifier.padding(start = 17.dp)
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(painter = painterResource(id = R.drawable.baseline_location_on_24),
+                                contentDescription = "",
+                                tint = Color.White,
+                                modifier = Modifier
+                                    .height(14.dp)
+                                    .width(14.dp)
 
-                    )
+                            )
+                            Text(text = stringResource(id = R.string.you_are_in_paris),
+                                color = Color.White,
+                                fontSize = 14.sp,
+                                fontWeight = FontWeight(400)
+                            )
+                        }
+                        Text(text = stringResource(id = R.string.my_trip),
+                            color = Color.White,
+                            fontWeight = FontWeight(700),
+                            fontSize = 24.sp)
+                    }
+                }
 
-                    LazyColumn(
-                        modifier = Modifier
-                            .padding(start = 17.dp, end = 18.dp)
-                    ){
-                        items(trip){
-                            trip ->
-                            Card(modifier = Modifier
-                                .fillMaxWidth()
-                                .height(200.dp)
-                            ) {
-                                Column(
+                Spacer(modifier = Modifier.height(13.dp))
+
+
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = Color(238, 237, 237, 255)
+                ) {
+                    Column() {
+                        Text(text = stringResource(id =R.string.categories),
+                            modifier = Modifier.padding(start = 17.dp)
+                        )
+
+                        Spacer(modifier = Modifier.height(13.dp))
+
+                        LazyRow(
+                            modifier = Modifier
+                                .padding(start = 19.dp)
+                        ){
+                            items(categorie){
+                                    categories ->
+                                Card(
                                     modifier = Modifier
-                                        .padding(5.dp)
-                                        .fillMaxWidth(),
-                                    verticalArrangement = Arrangement.SpaceBetween
-
+                                        .width(109.dp)
+                                        .height(64.dp),
+                                    backgroundColor = Color.Magenta
                                 ) {
-                                    Image(painter = trip.image ?: painterResource(id = R.drawable.rectangle20),
-                                        contentDescription = "",
+                                    Column(
                                         modifier = Modifier
-                                            .fillMaxWidth()
-                                            .height(106.dp)
-                                            .clip(shape = RoundedCornerShape(10.dp)),
-                                        contentScale = ContentScale.Crop
-                                    )
-                                    Row() {
-                                        Text(
-                                            text = trip.place,
-                                            fontSize = 14.sp,
-                                            color = Color.Magenta,
-                                            fontWeight = FontWeight.W400,
-                                            lineHeight = 15.sp
+                                            .fillMaxSize()
+                                            .padding(8.dp),
+                                        verticalArrangement = Arrangement.Center,
+                                        horizontalAlignment = Alignment.CenterHorizontally
+                                    ) {
+                                        Icon(painter = categories.image ?:
+                                        painterResource(
+                                            id = R.drawable.baseline_forest_24) ,
+                                            contentDescription = "",
+                                            tint = Color.White,
+                                            modifier = Modifier
+                                                .width(32.dp)
+                                                .height(32.dp)
                                         )
-                                        Spacer(modifier = Modifier.width(3.dp))
-                                        Text(
-                                            text = trip.year,
-                                            fontSize = 14.sp,
-                                            color = Color.Magenta,
-                                            fontWeight = FontWeight.W400,
-                                            lineHeight = 15.sp
-                                        )
+                                        Text(text = categories.name,
+                                            color = Color.White,
+                                            fontSize = 14.sp )
                                     }
-                                    Spacer(modifier = Modifier.width(5.dp))
-                                    Text(
-                                        text = trip.description,
-                                        modifier = Modifier.fillMaxWidth(),
-                                        fontSize = 10.sp,
-                                        color = Color.Gray,
-                                        fontWeight = FontWeight.W400
-                                    )
-                                    Spacer(modifier = Modifier.width(13.dp))
-                                    Text(
-                                        text = trip.data,
-                                        modifier = Modifier.fillMaxWidth(),
-                                        textAlign = TextAlign.Right,
-                                        fontSize = 10.sp,
-                                        color = Color.Magenta
-                                    )
 
                                 }
-
+                                Spacer(modifier = Modifier.width(8.dp))
                             }
-                            Spacer(modifier = Modifier.height(11.dp))
                         }
+                        OutlinedTextField(
+                            value = "" ,
+                            onValueChange = {},
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(17.dp),
+                            shape = RoundedCornerShape(16.dp),
+                            leadingIcon = {
+                                Icon(
+                                    painter = painterResource(id = R.drawable.baseline_search_24) ,
+                                    contentDescription ="",
+                                    tint = Color.Gray
+                                )
+                            },
+                            label = {
+                                Text(text = stringResource(id = R.string.searchDestiny),
+                                    color = Color.Gray)
+                            },
+                            colors = TextFieldDefaults.outlinedTextFieldColors(
+                                unfocusedBorderColor = Color.White,
+                                backgroundColor = Color.White
+                            ),
+
+                            )
+
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Text(
+                            text = stringResource(id = R.string.pastTrips),
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight(400),
+                            modifier = Modifier.padding(start = 17.dp)
+
+                        )
+
+                        Spacer(modifier = Modifier.height(14.dp))
+
+                        LazyColumn(
+                            modifier = Modifier
+                                .padding(start = 17.dp, end = 18.dp)
+                        ){
+                            items(trip){
+                                    trip ->
+                                Card(modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(200.dp)
+                                ) {
+                                    Column(
+                                        modifier = Modifier
+                                            .padding(5.dp)
+                                            .fillMaxWidth(),
+                                        verticalArrangement = Arrangement.SpaceBetween
+
+                                    ) {
+                                        Image(painter = trip.image ?: painterResource(id = R.drawable.rectangle20),
+                                            contentDescription = "",
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .height(106.dp)
+                                                .clip(shape = RoundedCornerShape(10.dp)),
+                                            contentScale = ContentScale.Crop
+                                        )
+                                        Row() {
+                                            Text(
+                                                text = trip.place,
+                                                fontSize = 14.sp,
+                                                color = Color.Magenta,
+                                                fontWeight = FontWeight.W400,
+                                                lineHeight = 15.sp
+                                            )
+                                            Spacer(modifier = Modifier.width(3.dp))
+                                            Text(
+                                                text = trip.year,
+                                                fontSize = 14.sp,
+                                                color = Color.Magenta,
+                                                fontWeight = FontWeight.W400,
+                                                lineHeight = 15.sp
+                                            )
+                                        }
+                                        Spacer(modifier = Modifier.width(5.dp))
+                                        Text(
+                                            text = trip.description,
+                                            modifier = Modifier.fillMaxWidth(),
+                                            fontSize = 10.sp,
+                                            color = Color.Gray,
+                                            fontWeight = FontWeight.W400
+                                        )
+                                        Spacer(modifier = Modifier.width(13.dp))
+                                        Text(
+                                            text = trip.data,
+                                            modifier = Modifier.fillMaxWidth(),
+                                            textAlign = TextAlign.Right,
+                                            fontSize = 10.sp,
+                                            color = Color.Magenta
+                                        )
+
+                                    }
+
+                                }
+                                Spacer(modifier = Modifier.height(11.dp))
+                            }
+                        }
+
                     }
-
                 }
+
+
             }
-
-
         }
     }
+
             }
 
 
